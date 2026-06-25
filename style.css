@@ -88,7 +88,6 @@ select {
 /* --- Hero Section & Animations --- */
 .hero {
     min-height: 85vh; 
-    /* THIS IS THE FIX: Full stretch (cover) but locked to the top center so no heads are cut off */
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG-20251205-WA0025.jpg.jpeg');
     background-position: center top; 
     background-size: cover; 
@@ -321,10 +320,38 @@ select {
 
 .checkout-btn:hover { background: var(--primary-hover); }
 
-/* --- Footer --- */
+/* --- Footer & Contact Info --- */
 footer {
-    text-align: center; padding: 2rem; background: var(--text-dark);
-    color: white; margin-top: 2rem;
+    text-align: center; 
+    padding: 3rem 1rem; 
+    background: var(--text-dark);
+    color: white; 
+    margin-top: 2rem;
+}
+
+.footer-contact {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.footer-contact p {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
 }
 
 /* =========================================================
@@ -338,10 +365,7 @@ footer {
     select { padding: 0.3rem; font-size: 0.9rem; }
     
     /* Hero section */
-    .hero {
-        min-height: 60vh;
-        /* Image maintains center top and cover behavior automatically here */
-    }
+    .hero { min-height: 60vh; }
     .animated-text { font-size: 2.2rem; }
     #hero-subtitle { font-size: 1rem; padding: 0 10px; }
 
@@ -358,4 +382,7 @@ footer {
 
     /* Cart */
     .cart-sidebar { max-width: 100vw; }
+    
+    /* Footer */
+    .footer-contact p { font-size: 1rem; }
 }

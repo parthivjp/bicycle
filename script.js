@@ -8,12 +8,12 @@ const productsBase = [
 
 // --- Application State ---
 let cart = [];
-let currentLang = 'en';
+let currentLang = 'gu'; // UPDATED: Default language is now Gujarati
 
 // --- Multilingual Dictionary (English & Gujarati) ---
 const dictionary = {
     en: {
-        navBrand: "Jatson Cycles",
+        navBrand: "Sunride Bicycles",
         heroTitle: "Ride the Future",
         heroSub: "Discover our premium range of all-terrain fat bikes and mountain cruisers.",
         heroBtn: "Shop Now",
@@ -24,16 +24,19 @@ const dictionary = {
         emptyCart: "Your cart is empty",
         alertEmpty: "Your cart is empty!",
         alertCheckout: "Checkout functionality would trigger here! \nTotal: ₹",
-        footer: "&copy; 2026 Jatson Cycles. All rights reserved.",
+        footerPhone: "Phone:",
+        footerAddress: "Location:",
+        footerMap: "View on Google Maps",
+        footer: "&copy; 2026 Sunride Bicycles. All rights reserved.",
         products: {
-            1: { name: "Jatson Stealth Fat Bike", desc: "Aggressive styling with massive wide tires. Perfect for sand, snow, and rough terrain." },
-            2: { name: "Jatson Eleven Pro Array", desc: "Fleet-ready high-performance mountain bikes with premium suspension systems." },
-            3: { name: "Jatson Urban Cruiser", desc: "Sleek, durable frame designed for comfortable city commuting and light trails." },
-            4: { name: "Jatson All-Terrain Series", desc: "The ultimate off-road companion featuring alloy star wheels and disc brakes." }
+            1: { name: "Sunride Stealth Fat Bike", desc: "Aggressive styling with massive wide tires. Perfect for sand, snow, and rough terrain." },
+            2: { name: "Sunride Eleven Pro Array", desc: "Fleet-ready high-performance mountain bikes with premium suspension systems." },
+            3: { name: "Sunride Urban Cruiser", desc: "Sleek, durable frame designed for comfortable city commuting and light trails." },
+            4: { name: "Sunride All-Terrain Series", desc: "The ultimate off-road companion featuring alloy star wheels and disc brakes." }
         }
     },
     gu: {
-        navBrand: "જાટસન સાયકલ્સ",
+        navBrand: "સનરાઇડ બાયસિકલ્સ",
         heroTitle: "ભવિષ્યની સવારી કરો",
         heroSub: "અમારી પ્રીમિયમ ઓલ-ટેરેન ફેટ બાઇક્સ અને માઉન્ટેન ક્રૂઝર્સની શ્રેણી શોધો.",
         heroBtn: "હમણાં ખરીદો",
@@ -44,12 +47,15 @@ const dictionary = {
         emptyCart: "તમારું કાર્ટ ખાલી છે",
         alertEmpty: "તમારું કાર્ટ ખાલી છે!",
         alertCheckout: "ચેકઆઉટ પ્રક્રિયા અહીં શરૂ થશે! \nકુલ: ₹",
-        footer: "&copy; 2026 જાટસન સાયકલ્સ. સર્વાધિકાર સુરક્ષિત.",
+        footerPhone: "ફોન:",
+        footerAddress: "સરનામું:",
+        footerMap: "ગૂગલ મેપ્સ પર જુઓ",
+        footer: "&copy; 2026 સનરાઇડ બાયસિકલ્સ. સર્વાધિકાર સુરક્ષિત.",
         products: {
-            1: { name: "જાટસન સ્ટીલ્થ ફેટ બાઇક", desc: "આક્રમક સ્ટાઇલ અને પહોળા ટાયર. રેતી, બરફ અને ખરબચડા રસ્તાઓ માટે શ્રેષ્ઠ." },
-            2: { name: "જાટસન ઇલેવન પ્રો એરે", desc: "પ્રીમિયમ સસ્પેન્શન સિસ્ટમ સાથે હાઇ-પરફોર્મન્સ માઉન્ટેન બાઇક્સ." },
-            3: { name: "જાટસન અર્બન ક્રૂઝર", desc: "શહેરના રસ્તાઓ પર આરામદાયક મુસાફરી માટે મજબૂત અને આકર્ષક ફ્રેમ." },
-            4: { name: "જાટસન ઓલ-ટેરેન સિરીઝ", desc: "એલોય સ્ટાર વ્હીલ્સ અને ડિસ્ક બ્રેક્સ સાથે તમારો શ્રેષ્ઠ ઓફ-રોડ સાથી." }
+            1: { name: "સનરાઇડ સ્ટીલ્થ ફેટ બાઇક", desc: "આક્રમક સ્ટાઇલ અને પહોળા ટાયર. રેતી, બરફ અને ખરબચડા રસ્તાઓ માટે શ્રેષ્ઠ." },
+            2: { name: "સનરાઇડ ઇલેવન પ્રો એરે", desc: "પ્રીમિયમ સસ્પેન્શન સિસ્ટમ સાથે હાઇ-પરફોર્મન્સ માઉન્ટેન બાઇક્સ." },
+            3: { name: "સનરાઇડ અર્બન ક્રૂઝર", desc: "શહેરના રસ્તાઓ પર આરામદાયક મુસાફરી માટે મજબૂત અને આકર્ષક ફ્રેમ." },
+            4: { name: "સનરાઇડ ઓલ-ટેરેન સિરીઝ", desc: "એલોય સ્ટાર વ્હીલ્સ અને ડિસ્ક બ્રેક્સ સાથે તમારો શ્રેષ્ઠ ઓફ-રોડ સાથી." }
         }
     }
 };
@@ -185,6 +191,11 @@ function changeLanguage() {
     setElementText("cart-title", langData.cartTitle);
     setElementText("total-text", langData.total);
     
+    // Contact Info Updates
+    setElementText("footer-phone-label", langData.footerPhone);
+    setElementText("footer-address-label", langData.footerAddress);
+    setElementText("footer-address-text", langData.footerMap);
+
     const checkoutBtn = document.getElementById("checkout-btn");
     if (checkoutBtn && langData.checkout) {
         checkoutBtn.innerText = langData.checkout;

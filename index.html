@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jatson Cycles | Premium Rides</title>
+    <title>Sunride Bicycles | Premium Rides</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,12 +12,12 @@
     <nav class="navbar">
         <div class="logo">
             <i class="fa-solid fa-person-biking"></i>
-            <span id="nav-brand">Jatson Cycles</span>
+            <span id="nav-brand">Sunride Bicycles</span>
         </div>
         <div class="nav-controls">
             <select id="lang-select" onchange="changeLanguage()">
-                <option value="en">English</option>
                 <option value="gu">ગુજરાતી</option>
+                <option value="en">English</option>
             </select>
             <div class="cart-icon" onclick="toggleCart()">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -58,7 +58,19 @@
     </div>
 
     <footer>
-        <p id="footer-text">&copy; 2026 Jatson Cycles. All rights reserved.</p>
+        <div class="footer-contact">
+            <p>
+                <i class="fa-solid fa-phone"></i> 
+                <span id="footer-phone-label">Phone:</span> 
+                <a href="tel:+919426958385">+91 94269 58385</a>
+            </p>
+            <p>
+                <i class="fa-solid fa-location-dot"></i> 
+                <span id="footer-address-label">Address:</span> 
+                <a href="https://maps.app.goo.gl/K3W71oC4zRGoh9cD8" target="_blank" id="footer-address-text">View on Google Maps</a>
+            </p>
+        </div>
+        <p id="footer-text">&copy; 2026 Sunride Bicycles. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
