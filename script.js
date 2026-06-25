@@ -8,7 +8,7 @@ const productsBase = [
 
 // --- Application State ---
 let cart = [];
-let currentLang = 'gu'; // UPDATED: Default language is now Gujarati
+let currentLang = 'gu'; // Default language is Gujarati
 
 // --- Multilingual Dictionary (English & Gujarati) ---
 const dictionary = {
@@ -24,10 +24,19 @@ const dictionary = {
         emptyCart: "Your cart is empty",
         alertEmpty: "Your cart is empty!",
         alertCheckout: "Checkout functionality would trigger here! \nTotal: ₹",
-        footerPhone: "Phone:",
-        footerAddress: "Location:",
-        footerMap: "View on Google Maps",
-        footer: "&copy; 2026 Sunride Bicycles. All rights reserved.",
+        
+        // Form & Contact Translations
+        contactTitle: "Contact Us",
+        contactPhone: "Phone",
+        contactAddress: "Address",
+        contactMapText: "View on Google Maps",
+        formName: "Full Name",
+        formPhone: "Phone Number",
+        formMessage: "Your Message",
+        formSubmit: "Send Message",
+        formSuccess: "Thank you! Your message has been sent. We will contact you soon.",
+
+        footer: "© 2026 Sunride Bicycles. All rights reserved.",
         products: {
             1: { name: "Sunride Stealth Fat Bike", desc: "Aggressive styling with massive wide tires. Perfect for sand, snow, and rough terrain." },
             2: { name: "Sunride Eleven Pro Array", desc: "Fleet-ready high-performance mountain bikes with premium suspension systems." },
@@ -47,10 +56,19 @@ const dictionary = {
         emptyCart: "તમારું કાર્ટ ખાલી છે",
         alertEmpty: "તમારું કાર્ટ ખાલી છે!",
         alertCheckout: "ચેકઆઉટ પ્રક્રિયા અહીં શરૂ થશે! \nકુલ: ₹",
-        footerPhone: "ફોન:",
-        footerAddress: "સરનામું:",
-        footerMap: "ગૂગલ મેપ્સ પર જુઓ",
-        footer: "&copy; 2026 સનરાઇડ બાયસિકલ્સ. સર્વાધિકાર સુરક્ષિત.",
+        
+        // Form & Contact Translations
+        contactTitle: "અમારો સંપર્ક કરો",
+        contactPhone: "ફોન",
+        contactAddress: "સરનામું",
+        contactMapText: "ગૂગલ મેપ્સ પર જુઓ",
+        formName: "પૂરું નામ",
+        formPhone: "ફોન નંબર",
+        formMessage: "તમારો સંદેશ",
+        formSubmit: "સંદેશ મોકલો",
+        formSuccess: "આભાર! તમારો સંદેશ મોકલવામાં આવ્યો છે. અમે ટૂંક સમયમાં તમારો સંપર્ક કરીશું.",
+
+        footer: "© 2026 સનરાઇડ બાયસિકલ્સ. સર્વાધિકાર સુરક્ષિત.",
         products: {
             1: { name: "સનરાઇડ સ્ટીલ્થ ફેટ બાઇક", desc: "આક્રમક સ્ટાઇલ અને પહોળા ટાયર. રેતી, બરફ અને ખરબચડા રસ્તાઓ માટે શ્રેષ્ઠ." },
             2: { name: "સનરાઇડ ઇલેવન પ્રો એરે", desc: "પ્રીમિયમ સસ્પેન્શન સિસ્ટમ સાથે હાઇ-પરફોર્મન્સ માઉન્ટેન બાઇક્સ." },
@@ -168,6 +186,13 @@ function checkout() {
     toggleCart();
 }
 
+// --- Handle Contact Form Submission ---
+function handleContactSubmit(event) {
+    event.preventDefault(); // Prevents the page from reloading
+    alert(dictionary[currentLang].formSuccess); // Shows success message in current language
+    document.getElementById("contact-form").reset(); // Clears the form fields
+}
+
 // --- Smooth Scrolling ---
 function scrollToProducts() {
     document.getElementById("section-title").scrollIntoView({ behavior: 'smooth' });
@@ -191,10 +216,23 @@ function changeLanguage() {
     setElementText("cart-title", langData.cartTitle);
     setElementText("total-text", langData.total);
     
-    // Contact Info Updates
-    setElementText("footer-phone-label", langData.footerPhone);
-    setElementText("footer-address-label", langData.footerAddress);
-    setElementText("footer-address-text", langData.footerMap);
+    // Updates for Contact Information
+    setElementText("contact-title", langData.contactTitle);
+    setElementText("contact-phone-title", langData.contactPhone);
+    setElementText("contact-address-title", langData.contactAddress);
+    setElementText("contact-address-link", langData.contactMapText);
+
+    // Updates for Contact Form Placeholders & Button
+    const formName = document.getElementById("form-name");
+    if(formName) formName.placeholder = langData.formName;
+    
+    const formPhone = document.getElementById("form-phone");
+    if(formPhone) formPhone.placeholder = langData.formPhone;
+    
+    const formMessage = document.getElementById("form-message");
+    if(formMessage) formMessage.placeholder = langData.formMessage;
+    
+    setElementText("form-submit", langData.formSubmit);
 
     const checkoutBtn = document.getElementById("checkout-btn");
     if (checkoutBtn && langData.checkout) {

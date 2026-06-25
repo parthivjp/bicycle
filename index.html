@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunride Bicycles | Premium Rides</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
             <i class="fa-solid fa-person-biking"></i>
             <span id="nav-brand">Sunride Bicycles</span>
         </div>
         <div class="nav-controls">
+            <!-- Default is Gujarati -->
             <select id="lang-select" onchange="changeLanguage()">
                 <option value="gu">ગુજરાતી</option>
                 <option value="en">English</option>
@@ -26,6 +29,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
             <h1 class="animated-text" id="hero-title">Ride the Future</h1>
@@ -34,20 +38,54 @@
         </div>
     </header>
 
+    <!-- Product Section -->
     <main class="container">
         <h2 class="section-title" id="section-title">Featured Bicycles</h2>
         <div class="product-grid" id="product-grid">
-            </div>
+            <!-- Products will be injected here by JavaScript -->
+        </div>
     </main>
 
+    <!-- Contact Us Section with Form -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" id="contact-title">Contact Us</h2>
+        <div class="contact-wrapper">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <h3 id="contact-phone-title">Phone</h3>
+                    <p><a href="tel:+919426958385">+91 94269 58385</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3 id="contact-address-title">Address</h3>
+                    <p><a href="https://maps.app.goo.gl/K3W71oC4zRGoh9cD8" target="_blank" id="contact-address-link">View on Google Maps</a></p>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                    <input type="text" id="form-name" placeholder="Full Name" required>
+                    <input type="tel" id="form-phone" placeholder="Phone Number" required>
+                    <textarea id="form-message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="form-submit-btn" id="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h2 id="cart-title">Your Cart</h2>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
+            <button class="close-cart" onclick="toggleCart()">×</button>
         </div>
         <div class="cart-items" id="cart-items">
-            </div>
+            <!-- Cart items will appear here -->
+        </div>
         <div class="cart-footer">
             <div class="total">
                 <span id="total-text">Total:</span>
@@ -57,21 +95,15 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-contact">
-            <p>
-                <i class="fa-solid fa-phone"></i> 
-                <span id="footer-phone-label">Phone:</span> 
-                <a href="tel:+919426958385">+91 94269 58385</a>
-            </p>
-            <p>
-                <i class="fa-solid fa-location-dot"></i> 
-                <span id="footer-address-label">Address:</span> 
-                <a href="https://maps.app.goo.gl/K3W71oC4zRGoh9cD8" target="_blank" id="footer-address-text">View on Google Maps</a>
-            </p>
-        </div>
-        <p id="footer-text">&copy; 2026 Sunride Bicycles. All rights reserved.</p>
+        <p id="footer-text">© 2026 Sunride Bicycles. All rights reserved.</p>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919426958385" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
