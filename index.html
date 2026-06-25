@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatson Cycles | Premium Rides</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-person-biking"></i>
+            <span id="nav-brand">Jatson Cycles</span>
+        </div>
+        <div class="nav-controls">
+            <select id="lang-select" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="gu">ગુજરાતી</option>
+            </select>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="animated-text" id="hero-title">Ride the Future</h1>
+            <p id="hero-subtitle">Discover our premium range of all-terrain fat bikes and mountain cruisers.</p>
+            <button class="cta-btn" onclick="scrollToProducts()" id="hero-btn">Shop Now</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title" id="section-title">Featured Bicycles</h2>
+        <div class="product-grid" id="product-grid">
+            </div>
+    </main>
+
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2 id="cart-title">Your Cart</h2>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span id="total-text">Total:</span>
+                <span id="cart-total">₹0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer-text">&copy; 2026 Jatson Cycles. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
